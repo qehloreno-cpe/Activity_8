@@ -1,0 +1,17 @@
+---
+- name: Update package cache (Ubuntu)
+  apt:
+    update_cache: yes
+  when: "ansible_os_family == 'Debian'"
+
+- name: Install required packages
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - apache2
+    - libapache2-mod-php
+    - php-gd
+    - libgd-dev
+    - unzip
+  when: "ansible_os_family == 'Debian'"

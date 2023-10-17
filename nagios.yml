@@ -1,0 +1,7 @@
+---
+- name: Install Nagios on Ubuntu and CentOS
+  hosts: nagios-servers
+  become: yes
+  roles:
+    - common
+    - nagios
